@@ -36,6 +36,7 @@ $pdf->AddPage();
   $logoX = $pdf->GetX();
   $logoY = $pdf->GetY();
   $rutaImagen =  $data->foto;
+  $pdf->Cell(5, 5, $rutaImagen, $margen, 0, 'l');
   $pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', 'PNG');
  
 
