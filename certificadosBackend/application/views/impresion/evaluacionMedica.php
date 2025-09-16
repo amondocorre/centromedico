@@ -36,7 +36,7 @@ $pdf->AddPage();
   $logoX = $pdf->GetX();
   $logoY = $pdf->GetY();
   $rutaImagen =  $data->foto;
-  $pdf->Cell(5, 5, $rutaImagen, $margen, 0, 'l');
+    $pdf->MultiCell(150, 5, utf8_decode($rutaImagen), $margen, 'L');
   $pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', 'PNG');
  
 
