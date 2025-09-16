@@ -51,7 +51,7 @@ $rutaImagen = FCPATH . "assets/evaluacion_medica/" . $nombreArchivo;
 if (file_exists($rutaImagen)) {
     $pdf->Image($rutaImagen, $logoX + 140, $logoY + 15, $logoWidth, 0, '', '', false, 300);
 } else {
-    $pdf->Cell(0, 5, "Imagen no encontrada: " . $rutaImagen, 0, 1, 'L');
+    $pdf->MultiCell(110, 10, "Imagen no encontrada: " . $rutaImagen, $margen, 'L');
 }
 
 
