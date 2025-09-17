@@ -90,8 +90,8 @@ $pdf->AddPage();
   $pdf->MultiCell(133, 5, $data->historial_familiar, $margen, 'L');
   */
   //coordinacion visomotora
-  $pdf->SetFont('helvetica', 'N', 15);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+17); // asegura posición
+  $pdf->SetFont('helvetica', 'N', 12);
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+19); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(35, 5, "", $margen, 0, 'C');
@@ -142,7 +142,7 @@ $pdf->AddPage();
     
   }
   //estres
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+25); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+30); // asegura posición
   switch (trim($data->reaccion_estres_riego)) {
     case 'adecuado':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
