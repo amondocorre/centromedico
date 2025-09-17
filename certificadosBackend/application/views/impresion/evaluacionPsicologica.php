@@ -56,7 +56,7 @@ $pdf->AddPage();
   //ci
   $pdf->Cell(8, 5, "", $margen, 0, 'C');
   $pdf->Cell(30, 5, $data->ci, $margen, 1, 'C');
-  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+12); // asegura posición
+  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+15); // asegura posición
   //fecha
   $pdf->Cell(48, 5, $data->lugar_nacimiento.' '.$data->fecha_nacimiento, $margen, 0, 'L');
   //profesion
@@ -91,7 +91,7 @@ $pdf->AddPage();
   */
   //coordinacion visomotora
   $pdf->SetFont('helvetica', 'N', 12);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+19); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+24); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(35, 5, "", $margen, 0, 'C');
@@ -142,7 +142,7 @@ $pdf->AddPage();
     
   }
   //estres
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+16); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+22); // asegura posición
   //$pdf->Cell(125, 5, $data->reaccion_estres_riego, $margen, 0, 'C');
   switch (trim($data->reaccion_estres_riego)) {
      
