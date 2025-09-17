@@ -14,7 +14,7 @@ $pageLayout = array(80, 170);
 $pdf = new MYPDF('P', 'mm', $pageLayout, true, 'UTF-8', false);
 //$pdf->SetAutoPageBreak(true, 10); 
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Alhecon');
+$pdf->SetAuthor('CENTRO MEDICO');
 $pdf->SetTitle('recibo pago');
 $pdf->SetSubject('recibo pago');
 $pdf->SetKeywords('TCPDF, CodeIgniter, PDF, Voucher');

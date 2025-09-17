@@ -16,10 +16,12 @@ class DashboardController extends CI_Controller {
     echo json_encode($data);
   }
 
-  public function getTotalClientes() {
+  public function getTotalEvaluations($id_sucursal) {
     $this->load->model('dashboard/DashboardModel');
-    $data = $this->DashboardModel->get_total_clientes();
-    echo json_encode($data);
+    $objeto = new stdClass();
+    $objeto->medical = $this->DashboardModel->getTotalEvaMedical($id_sucursal);
+    $objeto->psychological = $this->DashboardModel->getTotalEvaPsychological($id_sucursal);
+    echo json_encode($objeto);
   }
 
   public function getMascotasEstancia() {

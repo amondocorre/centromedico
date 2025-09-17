@@ -310,7 +310,7 @@ if(true){
   $pdf->SetX($pdf->getMargins()['left']+30);
   $pdf->Cell(40, 5, ''.$data->contrato->cliente, '', 0, 'C');
   $pdf->SetX($pdf->getMargins()['left']+100);
-  $pdf->Cell(40, 5, 'ALHECON ESPINOZA', '', 1, 'C');
+  $pdf->Cell(40, 5, 'CENTRO MEDICO', '', 1, 'C');
   
   //var_dump($data->contrato->cliente);
 }

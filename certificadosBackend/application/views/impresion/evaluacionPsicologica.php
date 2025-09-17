@@ -38,7 +38,7 @@ $pdf->AddPage();
 
   //$rutaImagen =  $data->foto;
   //$pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', 'PNG');
-  $pdf->SetFont('helvetica', 'B', 17);
+  $pdf->SetFont('helvetica', 'B', 14);
   $afterLogoY = $logoY + $logoWidth + 2;
   $pdf->SetXY($pdf->getMargins()['left']-10,$afterLogoY-12);
     
@@ -56,7 +56,7 @@ $pdf->AddPage();
   //ci
   $pdf->Cell(8, 5, "", $margen, 0, 'C');
   $pdf->Cell(30, 5, $data->ci, $margen, 1, 'C');
-  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+15); // asegura posición
+  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+12); // asegura posición
   //fecha
   $pdf->Cell(48, 5, $data->lugar_nacimiento.' '.$data->fecha_nacimiento, $margen, 0, 'L');
   //profesion
@@ -90,8 +90,8 @@ $pdf->AddPage();
   $pdf->MultiCell(133, 5, $data->historial_familiar, $margen, 'L');
   */
   //coordinacion visomotora
-  $pdf->SetFont('helvetica', 'N', 12);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+24); // asegura posición
+  $pdf->SetFont('helvetica', 'N', 10);
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+17); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(35, 5, "", $margen, 0, 'C');
@@ -125,7 +125,7 @@ $pdf->AddPage();
     
   }
   //memoria
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+19); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+20); // asegura posición
   switch (trim($data->atencion_cognitiva)) {
     case 'adecuado':
         $pdf->Cell(35, 5, "", $margen, 0, 'C');
@@ -135,22 +135,20 @@ $pdf->AddPage();
         $pdf->Cell(80, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'observacion':
+    case 'opservacion':
         $pdf->Cell(125, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     
   }
   //estres
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+22); // asegura posición
-  //$pdf->Cell(125, 5, $data->reaccion_estres_riego, $margen, 0, 'C');
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+25); // asegura posición
   switch (trim($data->reaccion_estres_riego)) {
-     
     case 'optimo':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'medio':
+    case 'menio':
         $pdf->Cell(75, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;

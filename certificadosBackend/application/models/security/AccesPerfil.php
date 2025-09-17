@@ -84,7 +84,7 @@ class AccesPerfil extends CI_Model {
   public function findButtonsAccesPerfilActive($idAcces,$idPerfil,$buttons) {
     $this->db->where('id_acceso', $idAcces);
     $this->db->where('id_perfil', $idPerfil);
-    $this->db->where_not_in('id_boton', $buttons);
+    if($buttons)$this->db->where_not_in('id_boton', $buttons);
     $this->db->where('estado', 1);
     return $this->db->get_where('acceso_boton_perfil')->result();
   }
