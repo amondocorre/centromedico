@@ -38,7 +38,7 @@ $pdf->AddPage();
 
   //$rutaImagen =  $data->foto;
   //$pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', 'PNG');
-  $pdf->SetFont('helvetica', 'B', 14);
+  $pdf->SetFont('helvetica', 'B', 17);
   $afterLogoY = $logoY + $logoWidth + 2;
   $pdf->SetXY($pdf->getMargins()['left']-10,$afterLogoY-12);
     
@@ -90,7 +90,7 @@ $pdf->AddPage();
   $pdf->MultiCell(133, 5, $data->historial_familiar, $margen, 'L');
   */
   //coordinacion visomotora
-  $pdf->SetFont('helvetica', 'N', 10);
+  $pdf->SetFont('helvetica', 'N', 15);
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+17); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
@@ -144,15 +144,15 @@ $pdf->AddPage();
   //estres
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+25); // asegura posición
   switch (trim($data->reaccion_estres_riego)) {
-    case 'optimo':
+    case 'adecuado':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'menio':
+    case 'inadecuado':
         $pdf->Cell(75, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'inadecuado':
+    case 'observacion':
         $pdf->Cell(125, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
