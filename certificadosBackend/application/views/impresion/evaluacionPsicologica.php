@@ -143,18 +143,18 @@ $pdf->AddPage();
   }
   //estres
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
-  $pdf->Cell(125, 5, $data->reaccion_estres_riego, $margen, 0, 'C');
+  //$pdf->Cell(125, 5, $data->reaccion_estres_riego, $margen, 0, 'C');
   switch (trim($data->reaccion_estres_riego)) {
      
-    case 'adecuado':
+    case 'optimo':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'inadecuado':
+    case 'medio':
         $pdf->Cell(75, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'observacion':
+    case 'inadecuado':
         $pdf->Cell(125, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
