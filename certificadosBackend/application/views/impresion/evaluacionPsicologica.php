@@ -135,15 +135,16 @@ $pdf->AddPage();
         $pdf->Cell(80, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
-    case 'opservacion':
+    case 'observacion':
         $pdf->Cell(125, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     
   }
   //estres
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+30); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
   switch (trim($data->reaccion_estres_riego)) {
+     $pdf->Cell(125, 5, $data->reaccion_estres_riego, $margen, 0, 'C');
     case 'adecuado':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
