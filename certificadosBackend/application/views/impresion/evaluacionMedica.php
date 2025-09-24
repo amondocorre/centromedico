@@ -351,6 +351,12 @@ if (file_exists($rutaImagen)) {
   $pdf->MultiCell(80, 5, utf8_decode($data->motoras_sensetivas_diagnosticadas), $margen, 'L');
    //evaluacion de especialidad
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+6); // asegura posición
+  ////////////
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+3); // asegura posición
+  $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->MultiCell(80, 5, 'eavulacio especialidad'.trim($data->requiere_evaluacion_especialidad), $margen, 'L');
+   
+  ////////////
   switch (trim($data->requiere_evaluacion_especialidad)) {
     case 'SI':
         $pdf->Cell(70, 5, "", $margen, 0, 'C');
@@ -374,6 +380,14 @@ if (file_exists($rutaImagen)) {
   }
     //evaluacion de psicosensometirca
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
+
+  ////////////
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+3); // asegura posición
+  $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->MultiCell(80, 5, 'eavulacio psicometrica'.trim($data->requiere_evaluacion_psicosensometria), $margen, 'L');
+   
+  ////////////
+
   switch (trim($data->requiere_evaluacion_psicosensometria)) {
     case 'SI':
         $pdf->Cell(78, 5, "", $margen, 0, 'C');
