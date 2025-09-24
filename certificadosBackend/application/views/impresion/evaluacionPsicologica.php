@@ -168,7 +168,8 @@ $pdf->AddPage();
    // observaciones
   $pdf->SetFont('helvetica', 'B', 8);
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
-  $pdf->MultiCell(165, 5, $data->observacion, $margen, 'L');
+  //$pdf->MultiCell(165, 5, $data->observacion, $margen, 'L');
+  $pdf->MultiCell(165, 5, 'DEL PRESENTE APTO DE EVALUACION PSICOLOGICA DE ACUERDO A LOS RESULTADOS  OBTENIDOS DE LAS PRUEBAS APLICADAS CONCLUYO QUE EL INTERESADO, NO PRESENTA ALTERACIONES FUNCIONALES SIGNIFICATIVOS O DISMINUIDAS. EL PRESENTE OSTENTA CAPACIDADES ADECUADAS EN LO QUE CONCLUYO ES APTO PARA CONDUCIR VEHICULOS ', $margen, 'L');
   
 
 
