@@ -44,7 +44,7 @@ $pdf->AddPage();
     
   //nombre completo
   $pdf->SetFont('helvetica', 'N', 10);
-  $pdf->SetXY($pdf->GetX()+5, $pdf->GetY()+15); // asegura posición
+  $pdf->SetXY($pdf->GetX()+8, $pdf->GetY()+15); // asegura posición
   $pdf->Cell(33, 5, $data->ap_paterno, $margen, 0, 'C');
   $pdf->Cell(3, 5, "", $margen, 0, 'C');
   $pdf->Cell(35, 5, $data->ap_materno, $margen, 0, 'C');
@@ -91,7 +91,7 @@ $pdf->AddPage();
   */
   //coordinacion visomotora
   $pdf->SetFont('helvetica', 'N', 10);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+17); // asegura posición
+  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+19); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(35, 5, "", $margen, 0, 'C');
@@ -160,16 +160,17 @@ $pdf->AddPage();
   }
 
    // observaciones
-  $pdf->SetFont('helvetica', 'N', 8);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+8); // asegura posición
+  $pdf->SetFont('helvetica', 'N', 6);
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+10); // asegura posición
   $pdf->Cell(30, 5, "", $margen, 0, 'C');
   $pdf->MultiCell(133, 5, '(EN ESTE ACAPITE SE DEBE INCORPORAR SI EL POSTULANTE ES APTO, SI NO FUERA APTO INDICAR LOS MOTIVOS)', $margen, 'L');
   
    // observaciones
-  $pdf->SetFont('helvetica', 'B', 8);
+  $pdf->SetFont('helvetica', 'B', 7);
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
   //$pdf->MultiCell(165, 5, $data->observacion, $margen, 'L');
-  $pdf->MultiCell(165, 5, 'DEL PRESENTE APTO DE EVALUACION PSICOLOGICA DE ACUERDO A LOS RESULTADOS  OBTENIDOS DE LAS PRUEBAS APLICADAS CONCLUYO QUE EL INTERESADO, NO PRESENTA ALTERACIONES FUNCIONALES SIGNIFICATIVOS O DISMINUIDAS. EL PRESENTE OSTENTA CAPACIDADES ADECUADAS EN LO QUE CONCLUYO ES APTO PARA CONDUCIR VEHICULOS ', $margen, 'L');
+  //$pdf->MultiCell(165, 5, 'DEL PRESENTE APTO DE EVALUACION PSICOLOGICA DE ACUERDO A LOS RESULTADOS  OBTENIDOS DE LAS PRUEBAS APLICADAS CONCLUYO QUE EL INTERESADO, NO PRESENTA ALTERACIONES FUNCIONALES SIGNIFICATIVOS O DISMINUIDAS. EL PRESENTE OSTENTA CAPACIDADES ADECUADAS EN LO QUE CONCLUYO ES APTO PARA CONDUCIR VEHICULOS ', $margen, 'L');
+  $pdf->MultiCell(80, 5, 'DEL PRESENTE APTO DE EVALUACION PSICOLOGICA DE ACUERDO A LOS RESULTADOS  OBTENIDOS DE LAS PRUEBAS APLICADAS CONCLUYO QUE EL INTERESADO, NO PRESENTA ALTERACIONES FUNCIONALES SIGNIFICATIVOS O DISMINUIDAS. EL PRESENTE OSTENTA CAPACIDADES ADECUADAS EN LO QUE CONCLUYO ES APTO PARA CONDUCIR VEHICULOS ', $margen, 'L');
   
 
 
