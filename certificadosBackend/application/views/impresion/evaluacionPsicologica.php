@@ -79,7 +79,7 @@ $pdf->AddPage();
   $pdf->Cell(28, 5, $data->telefono, $margen, 1, 'C');
   // HISTORIAL FAMILIAR
   $pdf->SetFont('helvetica', 'N', 8);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+10); // asegura posición
+  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+10); // asegura posición
   $pdf->Cell(35, 5, "", $margen, 0, 'C');
   $texto='SE PRESENTA A CONSULTA SUJETO DE '.$data->historia_familiar.'  AÑOS DE EDAD SIN ANTECEDENTES   PSICOLOGICOS PERSONALES O FAMILIARES DESTACABLES';
   $pdf->MultiCell(138, 5, $texto, $margen, 'L');
@@ -161,7 +161,7 @@ $pdf->AddPage();
 
    // observaciones
   $pdf->SetFont('helvetica', 'N', 6);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+13); // asegura posición
+  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+10); // asegura posición
   $pdf->Cell(30, 5, "", $margen, 0, 'C');
   $pdf->MultiCell(133, 5, '(EN ESTE ACAPITE SE DEBE INCORPORAR SI EL POSTULANTE ES APTO, SI NO FUERA APTO INDICAR LOS MOTIVOS)', $margen, 'L');
   
