@@ -368,7 +368,7 @@ if (file_exists($rutaImagen)) {
    //resultado motivo de especialidad
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+3); // asegura posición
   $pdf->Cell(65, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
-  $pdf->MultiCell(80, 5, 'resultaod evaluacion:'.utf8_decode($data->evaluacion_especialidad:), $margen, 'L');
+  $pdf->MultiCell(80, 5, 'resultaod evaluacion:'.utf8_decode($data->evaluacion_especialidad), $margen, 'L');
   if ($data->resultado_evaluacion == '- NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS.'){
     $pdf->SetTextColor(255, 0, 0);
   }
