@@ -364,11 +364,11 @@ if (file_exists($rutaImagen)) {
    //motivo de especialidad
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
   $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
-  $pdf->MultiCell(80, 5, utf8_decode($data->evaluacion_especialidad), $margen, 'L');
+  $pdf->MultiCell(80, 5, 'evaluacion especialidad: '.utf8_decode($data->evaluacion_especialidad), $margen, 'L');
    //resultado motivo de especialidad
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+3); // asegura posición
   $pdf->Cell(65, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
-  $pdf->MultiCell(80, 5, utf8_decode($data->resultado_evaluacion), $margen, 'L');
+  $pdf->MultiCell(80, 5, 'resultaod evaluacion:'.utf8_decode($data->resultado_evaluacion), $margen, 'L');
   if ($data->resultado_evaluacion == '- NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS.'){
     $pdf->SetTextColor(255, 0, 0);
   }
@@ -388,7 +388,7 @@ if (file_exists($rutaImagen)) {
   }
   //resultado de la evaluacion
   $pdf->SetFont('helvetica', 'B', 12);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+28); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+24); // asegura posición
   $pdf->MultiCell(170, 5, utf8_decode($data->motivo_resultado), $margen, 'C');
 
 
