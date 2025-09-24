@@ -80,7 +80,8 @@ if (file_exists($rutaImagen)) {
   //sexo
   $pdf->Cell(10, 5, $data->sexo, $margen, 0, 'C');
   $pdf->Cell(5, 5, "", $margen, 0, 'C');
-  $pdf->Cell(27, 5, "COCHABAMBA, ".$data->fecha_evaluacion, $margen, 0, 'L');
+  $fecha = date("d/m/Y", strtotime($data->fecha_evaluacion));
+  $pdf->Cell(27, 5, "COCHABAMBA, ".$fecha, $margen, 0, 'L');
   //fecha
   //$pdf->Cell(20, 5, $data->fecha, $margen, 1, 'L');
   //antecedentes_rc
