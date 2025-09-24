@@ -37,7 +37,7 @@ $pdf->AddPage();
   $logoY = $pdf->GetY();
   $rutaImagen =  $data->foto;
  // $pdf->Cell(5, 5, $rutaImagen, $margen, 0, 'l');
-  $pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', '');
+ // $pdf->Image($rutaImagen, $logoX+140, $logoY+15, $logoWidth, '0', '');
   
   // $data->foto viene como: "http://localhost/amondocorre/assets/evaluacion_medica/6.jpg"
 // Lo transformamos en ruta física
@@ -58,7 +58,7 @@ if (file_exists($rutaImagen)) {
 
 
   //$pdf->Image($data->foto, $logoX-10, $logoY-10, $logoWidth, '', 'PNG');
-  $pdf->SetFont('helvetica', 'B', 14);
+  //$pdf->SetFont('helvetica', 'B', 14);
   $afterLogoY = $logoY + $logoWidth + 2;
   $pdf->SetXY($pdf->getMargins()['left']-10,$afterLogoY-12);
     
@@ -84,7 +84,7 @@ if (file_exists($rutaImagen)) {
   //fecha
   //$pdf->Cell(20, 5, $data->fecha, $margen, 1, 'L');
   //antecedentes_rc
-  $pdf->Cell(5, 18, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(5, 21, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(45, 5, "", $margen, 0, 'C');
   $pdf->MultiCell(110, 10, utf8_decode($data->antecendentes_rc), $margen, 'L');
   //antecedentes_pp
