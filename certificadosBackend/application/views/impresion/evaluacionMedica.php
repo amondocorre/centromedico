@@ -49,7 +49,7 @@ $rutaImagen = FCPATH . "assets/evaluacion_medica/" . $nombreArchivo;
 
 // Para depuración: verificar si existe
 if (file_exists($rutaImagen)) {
-    $pdf->Image($rutaImagen, $logoX + 140, $logoY + 15, $logoWidth, 0, '', '', false, 300);
+    $pdf->Image($rutaImagen, $logoX + 140, $logoY + 18, $logoWidth, 0, '', '', false, 300);
 } else {
     $pdf->Cell(0, 5, "Imagen no encontrada: " . $rutaImagen, 0, 1, 'L');
 }
@@ -111,7 +111,7 @@ if (file_exists($rutaImagen)) {
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
   switch (trim($data->fuma)) {
     case 'Nunca':
-        $pdf->Cell(34, 5, "", $margen, 0, 'C');
+        $pdf->Cell(35, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Ocasionalmente':
@@ -124,7 +124,7 @@ if (file_exists($rutaImagen)) {
         break;
     
   }
-  
+  //fiebre amarilla
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+7); // asegura posición
   switch (trim($data->f_amarilla)) {
     case '1':
@@ -138,7 +138,7 @@ if (file_exists($rutaImagen)) {
         break;
    
   }
-  
+  //antitetanica
   switch (trim($data->antitetanica)) {
     case '1':
         $pdf->Cell(62, 5, "", $margen, 0, 'C');
@@ -150,7 +150,7 @@ if (file_exists($rutaImagen)) {
         break;
   }
   //grupo sanguineo
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+7); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+9); // asegura posición
   $pdf->Cell(70, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(35, 5, $data->grupo_sanguineo, $margen, 1, 'C');
   //temperatura
@@ -175,6 +175,7 @@ if (file_exists($rutaImagen)) {
   //peso
   $pdf->Cell(25, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(20, 5, $data->peso, $margen, 1, 'C');
+  $pdf->SetFont('helvetica', 'N', 8);
   //cabeza
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+18); // asegura posición
   $pdf->Cell(10, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
@@ -190,9 +191,9 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(10, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
   $pdf->MultiCell(150, 5, utf8_decode($data->cuello), $margen, 'L');
-  
+    $pdf->SetFont('helvetica', 'N', 10);
   //ex_general_ojos
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
   $pdf->Cell(80, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(70, 5, $data->ex_general_ojos, $margen, 1, 'L');
   //movimiento_oculares
