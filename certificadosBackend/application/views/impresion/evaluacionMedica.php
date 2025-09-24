@@ -84,6 +84,7 @@ if (file_exists($rutaImagen)) {
   //fecha
   //$pdf->Cell(20, 5, $data->fecha, $margen, 1, 'L');
   //antecedentes_rc
+  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+2); // asegura posición
   $pdf->Cell(5, 21, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(45, 5, "", $margen, 0, 'C');
   $pdf->MultiCell(110, 10, utf8_decode($data->antecendentes_rc), $margen, 'L');
@@ -193,7 +194,7 @@ if (file_exists($rutaImagen)) {
   $pdf->MultiCell(150, 5, utf8_decode($data->cuello), $margen, 'L');
     $pdf->SetFont('helvetica', 'N', 10);
   //ex_general_ojos
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
   $pdf->Cell(80, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(70, 5, $data->ex_general_ojos, $margen, 1, 'L');
   //movimiento_oculares
