@@ -161,7 +161,7 @@ $pdf->AddPage();
 
    // observaciones
   $pdf->SetFont('helvetica', 'N', 6);
-  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+10); // asegura posición
+  $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+6); // asegura posición
   $pdf->Cell(30, 5, "", $margen, 0, 'C');
   $pdf->MultiCell(133, 5, '(EN ESTE ACAPITE SE DEBE INCORPORAR SI EL POSTULANTE ES APTO, SI NO FUERA APTO INDICAR LOS MOTIVOS)', $margen, 'L');
   
