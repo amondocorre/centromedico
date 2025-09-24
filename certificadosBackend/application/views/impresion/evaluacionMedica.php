@@ -373,7 +373,7 @@ if (file_exists($rutaImagen)) {
     $pdf->SetTextColor(255, 0, 0);
   }
     //evaluacion de psicosensometirca
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
 
 
   switch (trim($data->requiere_evaluacion_psicosensometria)) {
@@ -388,7 +388,7 @@ if (file_exists($rutaImagen)) {
   }
   //resultado de la evaluacion
   $pdf->SetFont('helvetica', 'B', 12);
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+17); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+19); // asegura posición
   $pdf->MultiCell(170, 5, utf8_decode($data->motivo_resultado), $margen, 'C');
 
 
