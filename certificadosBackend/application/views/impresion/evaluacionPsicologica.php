@@ -64,8 +64,9 @@ $pdf->AddPage();
   $pdf->Cell(8, 5, "", $margen, 0, 'C');
   $pdf->Cell(45, 5, $data->profecion, $margen, 0, 'r');
   //fecha examen
+  $fechaExamen = date("d/m/Y", strtotime($data->fecha_evaluacion));
   $pdf->Cell(8, 5, "", $margen, 0, 'C');
-  $pdf->Cell(40, 5, $data->fecha_evaluacion, $margen, 1, 'r');
+  $pdf->Cell(40, 5, $fechaExamen, $margen, 1, 'r');
   //DOMICILIO
   $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+12); // asegura posición
   $pdf->Cell(45, 5, $data->domicilio, $margen, 0, 'r');
