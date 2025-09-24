@@ -58,7 +58,8 @@ $pdf->AddPage();
   $pdf->Cell(30, 5, $data->ci, $margen, 1, 'C');
   $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+12); // asegura posición
   //fecha
-  $pdf->Cell(48, 5, $data->lugar_nacimiento.' '.$data->fecha_nacimiento, $margen, 0, 'L');
+  $fecha = date("d/m/Y", strtotime($data->fecha_nacimiento));
+  $pdf->Cell(48, 5, $data->lugar_nacimiento.' '.$data->fecha, $margen, 0, 'L');
   //profesion
   $pdf->Cell(8, 5, "", $margen, 0, 'C');
   $pdf->Cell(45, 5, $data->profecion, $margen, 0, 'r');
