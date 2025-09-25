@@ -88,11 +88,11 @@ if (file_exists($rutaImagen)) {
   $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+2); // asegura posición
   $pdf->Cell(5, 21, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(45, 5, "", $margen, 0, 'C');
-  $pdf->MultiCell(110, 10, utf8_decode($data->antecendentes_rc), $margen, 'L');
+  $pdf->MultiCell(110, 10, ($data->antecendentes_rc), $margen, 'L');
   //antecedentes_pp
   //$pdf->Cell(5, 5, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(45, 5, "", $margen, 0, 'C');
-  $pdf->MultiCell(110, 10, utf8_decode($data->antecendentes_pp), 0, 'L');
+  $pdf->MultiCell(110, 10, ($data->antecendentes_pp), $margen, 'L');
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
   switch (trim($data->bebe)) {
     case 'Nunca':
