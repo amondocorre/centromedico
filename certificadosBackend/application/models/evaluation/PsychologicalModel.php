@@ -64,7 +64,7 @@ class PsychologicalModel extends CI_Model {
     $this->form_validation->set_rules('edad', 'Edad', 'required');
     $this->form_validation->set_rules('fecha_nacimiento', 'Fecha Nacimiento', 'required');
     $this->form_validation->set_rules('lugar_nacimiento', 'Lugar Nacimiento', 'required');
-    $this->form_validation->set_rules('domicilio', 'Domicilio', 'required');
+    //$this->form_validation->set_rules('domicilio', 'Domicilio', 'required');
     $this->form_validation->set_rules('profecion', 'Profecion', 'required');
     $this->form_validation->set_rules('fecha_evaluacion', 'Eecha Evaluacion', 'required');
     return $this->form_validation->run();
