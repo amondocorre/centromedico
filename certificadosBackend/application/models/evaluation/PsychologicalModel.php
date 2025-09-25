@@ -39,6 +39,14 @@ class PsychologicalModel extends CI_Model {
     $this->db->where('id_evaluacion_psicologica', $id);
     return $this->db->update($this->table, $data);
   }
+  public function activate($id,$idUsuario) {
+    $data = new stdClass();
+    $data->fecha_modificacion = date('Y-m-d H:i:s');
+    $data->id_usuario_modifica = $idUsuario;
+    $data->id_estado_evaluacion = '1';
+    $this->db->where('id_evaluacion_psicologica', $id);
+    return $this->db->update($this->table, $data);
+  }
   public function search($q) {
     $url = getHttpHost();
     $this->db->select("id_evaluacion_psicologica,ap_paterno,ap_materno,nombre,edad,ci,lugar_nacimiento,fecha_nacimiento,profecion,fecha_evaluacion,

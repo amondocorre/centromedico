@@ -69,6 +69,24 @@ class MedicalController extends CI_Controller {
       return _send_json_response($this, 400, $response);
     }
   }
+  public function activate($id) {
+    if (!validate_http_method($this, ['PUT']))return; 
+    $res = verifyTokenAccess();
+    if(!$res) return;
+    $user = $res->user;
+    $idUsuario = $user->id_usuario;
+    if ($this->MedicalModel->activate($id,$idUsuario)) {
+      $url = getHttpHost();
+      $res = $this->MedicalModel->findIdentity($id); 
+      $res->foto = $res->foto? $url.$res->foto:'';
+      $res->nombre_completo = $res->nombre.' '.$res->ap_paterno.' '.$res->ap_materno;
+      $response = ['status' => 'success','message'=>'Se Guardo correctamente la información.','data'=>$res];
+      return _send_json_response($this, 200, $response);
+    } else {
+      $response = ['status' => 'error', 'message' =>  array_values($this->form_validation->error_array())];
+      return _send_json_response($this, 400, $response);
+    }
+  }
   public function search() {
       if (!validate_http_method($this, ['GET'])) return; 
       $res = verifyTokenAccess();

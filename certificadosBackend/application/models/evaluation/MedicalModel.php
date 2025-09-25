@@ -39,6 +39,14 @@ class MedicalModel extends CI_Model {
     $this->db->where('id_evaluacion_medica', $id);
     return $this->db->update($this->table, $data);
   }
+  public function activate($id,$idUsuario) {
+    $data = new stdClass();
+    $data->fecha_modificacion = date('Y-m-d H:i:s');
+    $data->id_usuario_modifica = $idUsuario;
+    $data->id_estado_evaluacion = '1';
+    $this->db->where('id_evaluacion_medica', $id);
+    return $this->db->update($this->table, $data);
+  }
   public function search($q) {
     $url = getHttpHost();
     $this->db->select("id_evaluacion_medica,ap_paterno,ap_materno,nombre,ci,edad,sexo,fecha_evaluacion,antecendentes_rc,antecendentes_pp,bebe,fuma,f_amarilla,antitetanica,
