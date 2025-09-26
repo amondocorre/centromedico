@@ -363,7 +363,7 @@ if (file_exists($rutaImagen)) {
         break;
   }
    //motivo de especialidad
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
   $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->MultiCell(80, 5, utf8_decode($data->motivo_referencia_especialidad), $margen, 'L');
    //resultado motivo de especialidad
