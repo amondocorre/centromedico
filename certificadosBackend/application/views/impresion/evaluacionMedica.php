@@ -156,15 +156,15 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(70, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(35, 5, $data->grupo_sanguineo, $margen, 1, 'C');
   //temperatura
-  $pdf->Cell(5, 5, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(5, 3, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(40, 4, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(23, 5, $data->temperatura, $margen, 0, 'C');
   //presion arterial
-  $pdf->Cell(35, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(35, 8, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $presion = str_replace("/", "  ", $data->presion_arterial);
   $pdf->Cell(30, 5, $presion, $margen, 1, 'C');
   //frecuencia_cardiaca
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+1); // asegura posición
   $pdf->Cell(25, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(20, 5, $data->frecuencia_cardiaca, $margen, 0, 'C');
   //frecuencia_respiratoria
@@ -179,7 +179,7 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(20, 5, $data->peso, $margen, 1, 'C');
   $pdf->SetFont('helvetica', 'N', 8);
   //cabeza
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+18); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+16); // asegura posición
   $pdf->Cell(10, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
   $pdf->MultiCell(150, 5, utf8_decode($data->cabeza), $margen, 'L');
