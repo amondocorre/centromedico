@@ -47,13 +47,39 @@ $nombreArchivo = basename($data->foto); // => "6.jpg"
 // Ruta física completa en tu servidor
 $rutaImagen = FCPATH . "assets/evaluacion_medica/" . $nombreArchivo;
 
+
+// Área máxima permitida (en mm: 1 cm = 10 mm)
+$maxWidth = 25;  // 3 cm
+$maxHeight = 30; // 2.5 cm
+
+if (file_exists($rutaImagen)) {
+    // Obtener tamaño real de la imagen (en píxeles)
+    list($width, $height) = getimagesize($rutaImagen);
+
+    // Calcular proporción
+    $xRatio = $maxWidth / $width;
+    $yRatio = $maxHeight / $height;
+
+    // Escala proporcional (usa el factor menor)
+    $scale = min($xRatio, $yRatio);
+
+    $newWidth = $width * $scale;
+    $newHeight = $height * $scale;
+
+    // Dibujar imagen con tamaño ajustado
+    $pdf->Image($rutaImagen, $logoX + 140, $logoY + 18, $newWidth, $newHeight, '', '', false, 300);
+} else {
+    $pdf->Cell(0, 5, "Imagen no encontrada: " . $rutaImagen, 0, 1, 'L');
+}
+
+/*
 // Para depuración: verificar si existe
 if (file_exists($rutaImagen)) {
     $pdf->Image($rutaImagen, $logoX + 140, $logoY + 18, $logoWidth, 0, '', '', false, 300);
 } else {
     $pdf->Cell(0, 5, "Imagen no encontrada: " . $rutaImagen, 0, 1, 'L');
 }
-
+*/
 
 
 
