@@ -396,9 +396,7 @@ if (file_exists($rutaImagen)) {
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
   $pdf->Cell(65, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->MultiCell(100, 5, ($data->evaluacion_especialidad), $margen, 'L');
-  if ($data->resultado_evaluacion == 'NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS'){
-    $pdf->SetTextColor(255, 0, 0);
-  }
+  
     //evaluacion de psicosensometirca
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
 
@@ -412,6 +410,9 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(133, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
+  }
+  if ($data->resultado_evaluacion == 'NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS'){
+    $pdf->SetTextColor(255, 0, 0);
   }
   //resultado de la evaluacion
   $pdf->SetFont('helvetica', 'B', 12);
