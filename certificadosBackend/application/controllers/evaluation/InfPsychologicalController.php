@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class PsychologicalController extends CI_Controller {
+class InfPsychologicalController extends CI_Controller {
   public function __construct() {
       parent::__construct();
       $this->load->database(); 
-      $this->load->model('evaluation/PsychologicalModel');
+      $this->load->model('evaluation/InfPsychologicalModel');
   } 
   public function create() {
     if (!validate_http_method($this, ['POST'])) {
@@ -19,18 +19,18 @@ class PsychologicalController extends CI_Controller {
     $data = $this->input->post();
     $file = $_FILES['file']??null;
     unset($data['nombre_completo']);
-    $id = $this->PsychologicalModel->create($data,$idUsuario);
+    $id = $this->InfPsychologicalModel->create($data,$idUsuario);
     if($id) {
       if($file){
-        $url = guardarArchivo($id,$file,'assets/evaluacion_psicologico/');
+        $url = guardarArchivo($id,$file,'assets/inv_evaluacion_psicologico/');
         if(!$url){
           $response = ['status' => 'success','message'=>'Ocurrio un error al guardar la foto.'];
           return _send_json_response($this, 200, $response);
         }
-        $this->PsychologicalModel->updateFoto($url,$id);
+        $this->InfPsychologicalModel->updateFoto($url,$id);
       }
       $url = getHttpHost();
-      $res = $this->PsychologicalModel->findIdentity($id); 
+      $res = $this->InfPsychologicalModel->findIdentity($id); 
       $res->foto = $res->foto? $url.$res->foto:'';
       $res->nombre_completo = $res->nombre.' '.$res->ap_paterno.' '.$res->ap_materno;
       $response = ['status' => 'success','message'=>'Se Guardo correctamente la información.','data'=>$res];
@@ -49,17 +49,17 @@ class PsychologicalController extends CI_Controller {
     $data = $this->input->post();
     $file = $_FILES['file']??null;
     unset($data['nombre_completo']);
-    if ($this->PsychologicalModel->update($id, $data,$idUsuario)) {
+    if ($this->InfPsychologicalModel->update($id, $data,$idUsuario)) {
       if($file){
-        $url = guardarArchivo($id,$file,'assets/evaluacion_psicologico/');
+        $url = guardarArchivo($id,$file,'assets/inv_evaluacion_psicologico/');
         if(!$url){
           $response = ['status' => 'success','message'=>'Ocurrio un error al guardar la foto.'];
           return _send_json_response($this, 200, $response);
         }
-        $this->PsychologicalModel->updateFoto($url,$id);
+        $this->InfPsychologicalModel->updateFoto($url,$id);
       }
       $url = getHttpHost();
-      $res = $this->PsychologicalModel->findIdentity($id); 
+      $res = $this->InfPsychologicalModel->findIdentity($id); 
       $res->foto = $res->foto? $url.$res->foto:'';
       $res->nombre_completo = $res->nombre.' '.$res->ap_paterno.' '.$res->ap_materno;
       $response = ['status' => 'success','message'=>'Se Guardo correctamente la información.','data'=>$res];
@@ -75,9 +75,9 @@ class PsychologicalController extends CI_Controller {
     if(!$res) return;
     $user = $res->user;
     $idUsuario = $user->id_usuario;
-    if ($this->PsychologicalModel->activate($id,$idUsuario)) {
+    if ($this->InfPsychologicalModel->activate($id,$idUsuario)) {
       $url = getHttpHost();
-      $res = $this->PsychologicalModel->findIdentity($id); 
+      $res = $this->InfPsychologicalModel->findIdentity($id); 
       $res->foto = $res->foto? $url.$res->foto:'';
       $res->nombre_completo = $res->nombre.' '.$res->ap_paterno.' '.$res->ap_materno;
       $response = ['status' => 'success','message'=>'Se Guardo correctamente la información.','data'=>$res];
@@ -95,7 +95,7 @@ class PsychologicalController extends CI_Controller {
       if (empty($q)) {
           return _send_json_response($this, 400, ['status' => 'error', 'message' => 'Parámetros incompletos']);
       }
-      $data = $this->PsychologicalModel->search($q);
+      $data = $this->InfPsychologicalModel->search($q);
       $response = ['status' => 'success','data'=>$data];
       return _send_json_response($this, 200, $response);
   }
@@ -104,7 +104,7 @@ class PsychologicalController extends CI_Controller {
       $res = verifyTokenAccess();
       if(!$res) return; 
       $url = getHttpHost();
-      $res = $this->PsychologicalModel->findIdentity($id); 
+      $res = $this->InfPsychologicalModel->findIdentity($id); 
       $res->foto = $res->foto? $url.$res->foto:'';
       $res->nombre_completo = $res->nombre.' '.$res->ap_paterno.' '.$res->ap_materno;
       $response = ['status' => 'success','data'=>$res];

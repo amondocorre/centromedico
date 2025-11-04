@@ -71,6 +71,24 @@ class DashboardController extends CI_Controller {
     ];
     echo json_encode($response);
   }
+  public function listInfEvaPsychological($idSucursal) {
+    $this->load->model('evaluation/InfPsychologicalModel');
+    $page = $q = $this->input->get('page') ?? 1;
+    $limit = $q = $this->input->get('limit') ?? 10;
+    $offset = ($page - 1) * $limit;
+    $data = $this->InfPsychologicalModel->getEvaluations($limit, $offset,$idSucursal);
+    $total = $this->InfPsychologicalModel->getEvaluationsTotal($idSucursal);
+    $response = [
+      'data' => $data,
+      'pagination' => [
+        'total' => $total,
+        'page' => (int) $page,
+        'limit' => (int) $limit,
+        'totalPages' => ceil($total / $limit)
+      ]
+    ];
+    echo json_encode($response);
+  }
   public function getDetailRent($idContrato) {
     if (!validate_http_method($this, ['GET'])) return; 
     $data = [];

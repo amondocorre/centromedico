@@ -30,7 +30,7 @@ class PsychologicalModel extends CI_Model {
     }
     unset($data['id_usuario_registra']);
     unset($data['fecha_registro']);
-    unset($data['id_sucursal']);
+    //unset($data['id_sucursal']);
     unset($data['text']);
 
     $data['ap_materno'] = isset($data['ap_materno'])?$data['ap_materno']:'';

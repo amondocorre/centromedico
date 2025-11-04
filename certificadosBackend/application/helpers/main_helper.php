@@ -200,3 +200,31 @@ if (!function_exists('construirLiteral')) {
     return mb_strtoupper($literal,'UTF-8').' '.$fraccion.'/100';
   }
 }
+if (!function_exists('isApto')) {
+	function isApto($text,$psicosometria){
+    if($psicosometria==1){
+      return 'APTO/CON VALORACION PSICOLOGICA';
+    }
+    switch ($text) {
+      case "APTO PARA CONDUCIR VEHICULOS":
+        return "APTO";
+      case "NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS":
+        return "NO ES APTO";
+      case "APTO CON LIMITACIONES Y ADAPTACIONES TECNICO VEHICULAR":
+        return$text;
+      default:
+        return "NO ES APTO";
+    }
+
+  }
+}
+if (!function_exists('descriptionResult')) {
+	function descriptionResult($text,$description){
+    switch ($text) {
+      case "NO ES APTO PARA CONDUCIR VEHICULOS INDICAR LOS MOTIVOS":
+        return $description;
+      default:
+        return "";
+    }
+  }
+}

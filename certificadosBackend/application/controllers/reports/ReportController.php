@@ -49,25 +49,27 @@ class ReportController extends CI_Controller {
     $response = ['status' => 'success','data'=>$cajas];
     return _send_json_response($this, 200, $response);
   }
-  public function reportContratos() {
-   if (!validate_http_method($this, ['POST'])) return; 
-    $res = verifyTokenAccess();
-    if(!$res) return; 
-    $data = json_decode(file_get_contents('php://input'), true);
-    $i_fecha = $data['i_fecha']??'';
-    $f_fecha = $data['f_fecha']??'';
-    if (!$i_fecha) {
-      $i_fecha = date('Y-m-d');
-      $f_fecha = date('Y-m-d');
+  public function reportEvaluationMedical() {
+   if (!validate_http_method($this, ['GET'])) return; 
+    //$res = verifyTokenAccess();
+    //if(!$res) return; 
+    $fecha = $this->input->get('fecha')??'';
+    $id_sucursal = $this->input->get('id_sucursal')??0;
+    $url = getHttpHost();
+    $url ='https://www.vanguardsolutionsbolivia.com/centromedico/certificadosBackend/';
+    if (!$fecha) {
+      $fecha = date('Y-m-d');
     }
-    $sql = "CALL getClienteContrato('$i_fecha','$f_fecha');";
+    $sql = "select em.*,s.nombre as sucursal from evaluacion_medica em 
+          INNER  join sucursal s on s.id_sucursal = em.id_sucursal 
+          where em.fecha_evaluacion ='$fecha' and em.id_estado_evaluacion = 2 and em.id_sucursal ='$id_sucursal';";
     $query = $this->db->query($sql);
     $clientes = $query->result_array();
     $query->free_result(); 
-    $this->db->close();
-    $this->db->initialize();
     foreach($clientes as $key=>$cliente){
-      $clientes[$key]['detalle'] = $cliente['detalle']?json_decode(utf8_encode($cliente['detalle'])):[];
+      $clientes[$key]['resultado_evaluacion'] = isApto($cliente['resultado_evaluacion'],$cliente['requiere_evaluacion_psicosensometria']);
+      $clientes[$key]['motivo_resultado'] = descriptionResult($cliente['resultado_evaluacion'],$cliente['motivo_resultado']);
+      $clientes[$key]['file'] = $cliente['foto']?$url.$cliente['foto']:'';
     }
     $response = ['status' => 'success','data'=>$clientes];
     return _send_json_response($this, 200, $response);
