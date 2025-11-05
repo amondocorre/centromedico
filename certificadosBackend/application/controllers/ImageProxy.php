@@ -60,7 +60,7 @@ class ImageProxy extends CI_Controller {
     foreach ($input['paths'] as $path) {
       $safePath = str_replace(['..', '\\'], '', $path);
       $fullUrl = $baseURL . $safePath;
-      $imageData = @file_get_contents($fullUrl);
+      $imageData = file_get_contents($fullUrl);
       $mimeType = @get_headers($fullUrl, 1)['Content-Type'];
        var_dump ($imageData);
      
