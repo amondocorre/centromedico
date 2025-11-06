@@ -51,27 +51,43 @@ class ImageProxy extends CI_Controller {
   }
   public function getBase64List() {
     $input = json_decode($this->input->raw_input_stream, true);
+
     if (!is_array($input) || !isset($input['paths'])) {
-      $response = ['status' => 'error', 'message' =>  'Formato inválido'];
-      return _send_json_response($this, 400, $response);
+        $response = ['status' => 'error', 'message' => 'Formato inválido'];
+        return _send_json_response($this, 400, $response);
     }
-    $baseURL = getHttpHost();
+
+    $baseURL = rtrim(getHttpHost(), '/') . '/'; // asegura el slash final
     $result = [];
+
     foreach ($input['paths'] as $path) {
-      $safePath = str_replace(['..', '\\'], '', $path);
-      $fullUrl = $baseURL . $safePath;
-      $imageData = @file_get_contents($fullUrl);
-      $mimeType = @get_headers($fullUrl, 1)['Content-Type'];
-      if ($imageData && strpos($mimeType, 'image/') === 0) {
-        $base64 = 'data:' . $mimeType . ';base64,' . base64_encode($imageData);
-        $result[$path] = $base64;
-      } else {
-        $result[$path] = null;
-      }
+        // limpiamos ruta
+        $safePath = ltrim(str_replace(['..', '\\'], '', $path), '/');
+
+        // armamos URL correcta
+        $fullUrl = $baseURL . $safePath;
+
+        $imageData = @file_get_contents($fullUrl);
+        $headers = @get_headers($fullUrl, 1);
+
+        $mimeType = null;
+        if (isset($headers['Content-Type'])) {
+            $mimeType = is_array($headers['Content-Type']) 
+                        ? $headers['Content-Type'][0]
+                        : $headers['Content-Type'];
+        }
+
+        if ($imageData && strpos($mimeType, 'image/') === 0) {
+            $result[$path] = 'data:' . $mimeType . ';base64,' . base64_encode($imageData);
+        } else {
+            $result[$path] = null;
+        }
     }
+
     $this->output
-          ->set_content_type('application/json')
-          ->set_output(json_encode($result));
-  }
+        ->set_content_type('application/json')
+        ->set_output(json_encode($result));
+}
+
 
 }
