@@ -57,28 +57,24 @@ class ImageProxy extends CI_Controller {
         return _send_json_response($this, 400, $response);
     }
 
-    $baseURL = rtrim(getHttpHost(), '/') . '/'; // asegura el slash final
+    $baseURL = rtrim(getHttpHost(), '/') . '/';
     $result = [];
 
     foreach ($input['paths'] as $path) {
-        // limpiamos ruta
         $safePath = ltrim(str_replace(['..', '\\'], '', $path), '/');
-
-        // armamos URL correcta
         $fullUrl = $baseURL . $safePath;
 
-        $imageData = @file_get_contents($fullUrl);
-        $headers = @get_headers($fullUrl, 1);
+        // --- USAMOS CURL ---
+        $ch = curl_init($fullUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $imageData = curl_exec($ch);
+        $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+        curl_close($ch);
 
-        $mimeType = null;
-        if (isset($headers['Content-Type'])) {
-            $mimeType = is_array($headers['Content-Type']) 
-                        ? $headers['Content-Type'][0]
-                        : $headers['Content-Type'];
-        }
-
-        if ($imageData && strpos($mimeType, 'image/') === 0) {
-            $result[$path] = 'data:' . $mimeType . ';base64,' . base64_encode($imageData);
+        if ($imageData && strpos($contentType, 'image/') === 0) {
+            $result[$path] = 'data:' . $contentType . ';base64,' . base64_encode($imageData);
         } else {
             $result[$path] = null;
         }
