@@ -61,24 +61,35 @@ class ImageProxy extends CI_Controller {
     $result = [];
 
     foreach ($input['paths'] as $path) {
-        $safePath = ltrim(str_replace(['..', '\\'], '', $path), '/');
-        $fullUrl = $baseURL . $safePath;
+    $safePath = ltrim(str_replace(['..', '\\'], '', $path), '/');
+    $fullUrl = $baseURL . $safePath;
 
-        // --- USAMOS CURL ---
-        $ch = curl_init($fullUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $imageData = curl_exec($ch);
-        $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-        curl_close($ch);
+    $ch = curl_init($fullUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $imageData = curl_exec($ch);
+    $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+    curl_close($ch);
 
-        if ($imageData && strpos($contentType, 'image/') === 0) {
-            $result[$path] = 'data:' . $contentType . ';base64,' . base64_encode($imageData);
-        } else {
-            $result[$path] = null;
+    if ($imageData && strpos($contentType, 'image/') === 0) {
+
+        // ---- COMPRESIÓN ----
+        if (function_exists('imagecreatefromstring')) {
+            $src = imagecreatefromstring($imageData);
+            ob_start();
+            imagejpeg($src, null, 60); // calidad 60%
+            $imageData = ob_get_clean();
+            imagedestroy($src);
+            $contentType = 'image/jpeg';
         }
+
+        $result[$path] = 'data:' . $contentType . ';base64,' . base64_encode($imageData);
+    } else {
+        $result[$path] = null;
     }
+}
+
 
     $this->output
         ->set_content_type('application/json')

@@ -49,7 +49,7 @@ class MedicalModel extends CI_Model {
   }
   public function search($q) {
     $url = getHttpHost();
-    $this->db->select("id_evaluacion_medica,ap_paterno,ap_materno,nombre,ci,edad,sexo,fecha_evaluacion,antecendentes_rc,antecendentes_pp,bebe,fuma,f_amarilla,antitetanica,
+    $this->db->select("id_evaluacion_medica,ap_paterno,ap_materno,nombre,ci,edad,sexo,fecha_evaluacion,telefono,antecendentes_rc,antecendentes_pp,bebe,fuma,f_amarilla,antitetanica,
     grupo_sanguineo,temperatura,presion_arterial,frecuencia_cardiaca,frecuencia_respiratoria,talla,peso,cabeza,cara,cuello,ex_general_ojos,
     movimiento_oculares,reflejo_luminoso_corneal,estrabismo,usa_lentes,cirugia,tipo_lentes,campimetria,colorimetria,od_con_lentes,od_sin_lentes,
     od_correccion,oi_con_lentes,oi_sin_lentes,oi_correccion,vision_profunda,dx_lampara_hendidura,oido_externo,oroscopia,t_weber,t_rinne,torax,cardiopolmunar,
