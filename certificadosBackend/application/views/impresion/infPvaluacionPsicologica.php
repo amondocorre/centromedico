@@ -29,7 +29,7 @@ $pdf->setFontSubsetting(true);
 $pdf->SetMargins(25, 20, 20);
 $pdf->SetAutoPageBreak(TRUE, 10);
 
-$margen=0 ;
+$margen=1 ;
 
 $pdf->AddPage();
   $logoWidth = 26;
