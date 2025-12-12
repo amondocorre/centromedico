@@ -103,7 +103,7 @@ $pdf->AddPage();
   $pdf->MultiCell(155, 15, $data->historia_medica, $margen, 'L');
   // HISTORIAL FAMILIAR
   $pdf->SetFont('helvetica', 'N', 12);
-  $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+13); // asegura posición
+  $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+11); // asegura posición
   $pdf->MultiCell(155, 15, $data->historia_familiar, $margen, 'L');
   //niveles de estres
   $pdf->SetFont('helvetica', 'N', 10);
