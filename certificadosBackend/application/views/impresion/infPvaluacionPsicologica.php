@@ -177,7 +177,7 @@ $pdf->AddPage();
   
   //atencion_sostenida_selectiva
   $pdf->SetFont('helvetica', 'N', 8);
-  $pdf->SetXY($pdf->GetX()+5, $pdf->GetY()+25); // asegura posición
+  $pdf->SetXY($pdf->GetX()+5, $pdf->GetY()+28); // asegura posición
   switch (trim($data->atencion_sostenida_selectiva??'')) {
     case 'adecuado':
         $pdf->Cell(11, 5, "", $margen, 0, 'C');
