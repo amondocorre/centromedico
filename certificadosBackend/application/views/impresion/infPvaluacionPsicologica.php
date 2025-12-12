@@ -86,7 +86,7 @@ $pdf->AddPage();
   $pdf->Cell(20, 5, "", $margen, 0, 'C');
   $pdf->Cell(45, 5, $data->profecion, $margen, 1, 'L');
   //DOMICILIO
-  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+5); // asegura posición
+  $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+7); // asegura posición
   $pdf->Cell(40, 5, $data->domicilio, $margen, 0, 'r');
   // nro
   $pdf->Cell(1, 5, "", $margen, 0, 'C');
