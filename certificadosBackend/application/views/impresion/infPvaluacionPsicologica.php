@@ -76,14 +76,14 @@ $pdf->AddPage();
   $pdf->Cell(30, 5, $data->nombre, $margen, 0, 'C');
   //edad
   //ci
-  $pdf->Cell(3, 5, "", $margen, 0, 'C');
+  $pdf->Cell(5, 5, "", $margen, 0, 'C');
   $pdf->Cell(28, 5, $data->ci, $margen, 1, 'C');
   $pdf->SetXY($pdf->GetX()-4, $pdf->GetY()+13); // asegura posición
   //fecha
   $fecha = date("d/m/Y", strtotime($data->fecha_nacimiento));
   $pdf->Cell(48, 5, $data->lugar_nacimiento.' '.$fecha, $margen, 0, 'L');
   //profesion
-  $pdf->Cell(20, 5, "", $margen, 0, 'C');
+  $pdf->Cell(23, 5, "", $margen, 0, 'C');
   $pdf->Cell(45, 5, $data->profecion, $margen, 1, 'L');
   //DOMICILIO
   $pdf->SetXY($pdf->GetX()-3, $pdf->GetY()+7); // asegura posición
@@ -99,7 +99,7 @@ $pdf->AddPage();
   $pdf->Cell(28, 5, $data->telefono, $margen, 1, 'C');
   // HISTORIAL medico
   $pdf->SetFont('helvetica', 'N', 12);
-  $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+20); // asegura posición
+  $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+18); // asegura posición
   $pdf->MultiCell(155, 15, $data->historia_medica, $margen, 'L');
   // HISTORIAL FAMILIAR
   $pdf->SetFont('helvetica', 'N', 12);
