@@ -29,7 +29,7 @@ $pdf->setFontSubsetting(true);
 $pdf->SetMargins(25, 20, 20);
 $pdf->SetAutoPageBreak(TRUE, 10);
 
-$margen=1 ;
+$margen=0 ;
 
 $pdf->AddPage();
   $logoWidth = 26;
@@ -98,11 +98,11 @@ $pdf->AddPage();
   $pdf->Cell(2, 5, "", $margen, 0, 'C');
   $pdf->Cell(28, 5, $data->telefono, $margen, 1, 'C');
   // HISTORIAL medico
-  $pdf->SetFont('helvetica', 'N', 7);
+  $pdf->SetFont('helvetica', 'N', 12);
   $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+20); // asegura posición
   $pdf->MultiCell(155, 15, $data->historia_medica, $margen, 'L');
   // HISTORIAL FAMILIAR
-  $pdf->SetFont('helvetica', 'N', 7);
+  $pdf->SetFont('helvetica', 'N', 12);
   $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+13); // asegura posición
   $pdf->MultiCell(155, 15, $data->historia_familiar, $margen, 'L');
   //niveles de estres
