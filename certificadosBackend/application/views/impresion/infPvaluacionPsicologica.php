@@ -292,6 +292,10 @@ $pdf->AddPage();
   $pdf->SetFont('helvetica', 'N', 9);
   $pdf->SetXY($pdf->GetX()-2, $pdf->GetY()+10); // asegura posición
   $pdf->MultiCell(165, 15, $data->observacion, $margen, 'L');
+  // lugar y fecha
+  $pdf->SetFont('helvetica', 'N', 9);
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+15); // asegura posición
+  $pdf->MultiCell(165, 15, 'Cochabamba, '.date("d/m/Y") , $margen, 'L');
 
 
 
