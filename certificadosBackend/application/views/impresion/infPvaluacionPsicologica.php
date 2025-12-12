@@ -68,7 +68,7 @@ $pdf->AddPage();
     
   //nombre completo
   $pdf->SetFont('helvetica', 'N', 10);
-  $pdf->SetXY($pdf->GetX()-10, $pdf->GetY()+38); // asegura posición
+  $pdf->SetXY($pdf->GetX()-10, $pdf->GetY()+36); // asegura posición
   $pdf->Cell(30, 5, $data->ap_paterno, $margen, 0, 'C');
   $pdf->Cell(3, 5, "", $margen, 0, 'C');
   $pdf->Cell(30, 5, $data->ap_materno, $margen, 0, 'C');
