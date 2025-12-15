@@ -83,7 +83,8 @@ $pdf->AddPage();
   $pdf->SetFont('helvetica', 'N', 8);
   $pdf->SetXY($pdf->GetX()+2, $pdf->GetY()+10); // asegura posición
   $pdf->Cell(35, 5, "", $margen, 0, 'C');
-  $texto='SE PRESENTA A CONSULTA SUJETO DE '.$data->historia_familiar.'  AÑOS DE EDAD SIN ANTECEDENTES   PSICOLOGICOS PERSONALES O FAMILIARES DESTACABLES';
+  //$texto='SE PRESENTA A CONSULTA SUJETO DE '.$data->historia_familiar.'  AÑOS DE EDAD SIN ANTECEDENTES   PSICOLOGICOS PERSONALES O FAMILIARES DESTACABLES';
+  $texto=''.$data->historia_familiar.'';
   $pdf->MultiCell(138, 5, $texto, $margen, 'L');
    // examen psicologico
   /*
