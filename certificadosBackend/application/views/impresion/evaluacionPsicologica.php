@@ -94,7 +94,7 @@ $pdf->AddPage();
   */
   //coordinacion visomotora
   $pdf->SetFont('helvetica', 'N', 14);
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+27); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+28); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -111,7 +111,7 @@ $pdf->AddPage();
     
   }
   //PERSONALIDAD
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+15); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+16); // asegura posición
   switch (trim($data->personalidad)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -128,7 +128,7 @@ $pdf->AddPage();
     
   }
   //memoria
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+16); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+20); // asegura posición
   switch (trim($data->atencion_cognitiva)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -152,7 +152,7 @@ $pdf->AddPage();
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'medio':
-        $pdf->Cell(73, 5, "", $margen, 0, 'C');
+        $pdf->Cell(71, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'inadecuado':
