@@ -93,7 +93,7 @@ $pdf->AddPage();
   $pdf->MultiCell(133, 5, $data->historial_familiar, $margen, 'L');
   */
   //coordinacion visomotora
-  $pdf->SetFont('helvetica', 'N', 10);
+  $pdf->SetFont('helvetica', 'N', 15);
   $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+25); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
