@@ -93,8 +93,8 @@ $pdf->AddPage();
   $pdf->MultiCell(133, 5, $data->historial_familiar, $margen, 'L');
   */
   //coordinacion visomotora
-  $pdf->SetFont('helvetica', 'N', 18);
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+25); // asegura posición
+  $pdf->SetFont('helvetica', 'N', 14);
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+27); // asegura posición
   switch (trim($data->coordinacion_visomotora)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -111,7 +111,7 @@ $pdf->AddPage();
     
   }
   //PERSONALIDAD
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+17); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+15); // asegura posición
   switch (trim($data->personalidad)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -128,7 +128,7 @@ $pdf->AddPage();
     
   }
   //memoria
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+20); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+16); // asegura posición
   switch (trim($data->atencion_cognitiva)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
