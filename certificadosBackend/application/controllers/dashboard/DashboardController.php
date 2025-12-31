@@ -24,6 +24,13 @@ class DashboardController extends CI_Controller {
     echo json_encode($objeto);
   }
 
+  public function getTotalEvaByDoctor($id_sucursal) {
+    $this->load->model('dashboard/DashboardModel');
+    $fecha = $this->input->get('fecha') ?? null;
+    $data = $this->DashboardModel->getTotalEvaByDoctor($id_sucursal, $fecha);
+    echo json_encode($data);
+  }
+
   public function getMascotasEstancia() {
     $this->load->model('dashboard/DashboardModel');
     $data = $this->DashboardModel->get_mascotas_estancia();

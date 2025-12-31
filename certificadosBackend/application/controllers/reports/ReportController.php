@@ -55,14 +55,20 @@ class ReportController extends CI_Controller {
     //if(!$res) return; 
     $fecha = $this->input->get('fecha')??'';
     $id_sucursal = $this->input->get('id_sucursal')??0;
+    $id_usuario = $this->input->get('id_usuario')??'';
     $url = getHttpHost();
     $url ='https://www.vanguardsolutionsbolivia.com/centromedico/certificadosBackend/';
     if (!$fecha) {
       $fecha = date('Y-m-d');
     }
+    $filters = " where em.fecha_evaluacion ='$fecha' and em.id_estado_evaluacion = 2 and em.id_sucursal ='$id_sucursal'";
+    $idUsuarioInt = (int)$id_usuario;
+    if (!empty($id_usuario) && $idUsuarioInt > 0) {
+      $filters .= " AND (em.id_usuario_modifica = $idUsuarioInt OR em.id_usuario_registra = $idUsuarioInt)";
+    }
     $sql = "select em.*,s.nombre as sucursal from evaluacion_medica em 
           INNER  join sucursal s on s.id_sucursal = em.id_sucursal 
-          where em.fecha_evaluacion ='$fecha' and em.id_estado_evaluacion = 2 and em.id_sucursal ='$id_sucursal';";
+          $filters;";
     $query = $this->db->query($sql);
     $clientes = $query->result_array();
     $query->free_result(); 

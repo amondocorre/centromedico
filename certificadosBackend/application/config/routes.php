@@ -217,6 +217,7 @@ $route['api/report/reportContratoDeudas'] = 'reports/ReportController/reportCont
 
 //dashboard
 $route['api/dashboard/getTotalEvaluations/(:any)'] = 'dashboard/DashboardController/getTotalEvaluations/$1';
+$route['api/dashboard/getTotalEvaByDoctor/(:any)'] = 'dashboard/DashboardController/getTotalEvaByDoctor/$1';
 $route['api/dashboard/totalIngresosDiarios/(:any)'] = 'dashboard/DashboardController/getIngresosDiarios/$1';
 $route['api/dashboard/listEvaMedical/(:any)'] = 'dashboard/DashboardController/listEvaMedical/$1';
 $route['api/dashboard/listEvaPsychological/(:any)'] = 'dashboard/DashboardController/listEvaPsychological/$1';
