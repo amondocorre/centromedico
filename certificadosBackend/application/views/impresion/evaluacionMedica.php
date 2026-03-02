@@ -157,12 +157,12 @@ if (file_exists($rutaImagen)) {
   switch (trim($data->f_amarilla)) {
     case '1':
         $pdf->Cell(43, 5, "", $margen, 0, 'C');
-        $pdf->Cell(8, 5, "X", $margen, 0, 'C');
+        $pdf->Cell(8, 5, "SI", $margen, 0, 'C');
         $pdf->Cell(15, 5, "", $margen, 0, 'C');
         break;
     case '0':
         $pdf->Cell(58, 5, "", $margen, 0, 'C');
-        $pdf->Cell(8, 5, "X", $margen, 0, 'C');
+        $pdf->Cell(8, 5, "NO", $margen, 0, 'C');
         break;
    
   }
@@ -170,11 +170,11 @@ if (file_exists($rutaImagen)) {
   switch (trim($data->antitetanica)) {
     case '1':
         $pdf->Cell(62, 5, "", $margen, 0, 'C');
-        $pdf->Cell(8, 5, "X", $margen, 1, 'C');
+        $pdf->Cell(8, 5, "SI", $margen, 1, 'C');
         break;
     case '0':
         $pdf->Cell(77, 5, "", $margen, 0, 'C');
-        $pdf->Cell(8, 5, "X", $margen, 1, 'C');
+        $pdf->Cell(8, 5, "NO", $margen, 1, 'C');
         break;
   }
   //grupo sanguineo
