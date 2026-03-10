@@ -179,7 +179,7 @@ if (file_exists($rutaImagen)) {
         break;
   }
   //grupo sanguineo
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+9); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+7); // asegura posición
   $pdf->Cell(70, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(35, 5, $data->grupo_sanguineo, $margen, 1, 'C');
   //temperatura
@@ -199,10 +199,10 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(30, 5, $data->frecuencia_respiratoria, $margen, 1, 'C');
   //talla
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+5); // asegura posición
-  $pdf->Cell(35, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(30, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(25, 5, $data->talla, $margen, 0, 'C');
   //peso
-  $pdf->Cell(25, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(20, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(20, 5, $data->peso, $margen, 1, 'C');
   $pdf->SetFont('helvetica', 'N', 8);
   //cabeza
