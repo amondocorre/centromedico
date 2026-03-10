@@ -174,7 +174,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "SI", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(75, 5, "", $margen, 0, 'C');
+        $pdf->Cell(77, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "NO", $margen, 1, 'C');
         break;
   }
@@ -311,7 +311,7 @@ if (file_exists($rutaImagen)) {
   $pdf->MultiCell(140, 4, utf8_decode($data->oido_externo), $margen, 'L');
   //$pdf->SetFont('helvetica', 'N', 10);
   //otoscpia
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+3); // asegura posición
   $pdf->Cell(15, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(45, 5, $data->oroscopia, $margen, 0, 'l');
   //t_weber
@@ -385,7 +385,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(115, 5, "", $margen, 0, 'C');
+        $pdf->Cell(118, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
@@ -408,7 +408,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(123, 5, "", $margen, 0, 'C');
+        $pdf->Cell(125, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
