@@ -127,7 +127,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Ocasionalmente':
-        $pdf->Cell(73, 5, "", $margen, 0, 'C');
+        $pdf->Cell(70, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Una o más a la semana':
@@ -144,7 +144,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Ocasionalmente':
-        $pdf->Cell(73, 5, "", $margen, 0, 'C');
+        $pdf->Cell(70, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Una o más a la semana':
@@ -157,12 +157,12 @@ if (file_exists($rutaImagen)) {
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+7); // asegura posición
   switch (trim($data->f_amarilla)) {
     case '1':
-        $pdf->Cell(43, 5, "", $margen, 0, 'C');
+        $pdf->Cell(45, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "SI", $margen, 0, 'C');
         $pdf->Cell(15, 5, "", $margen, 0, 'C');
         break;
     case '0':
-        $pdf->Cell(58, 5, "", $margen, 0, 'C');
+        $pdf->Cell(56, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "NO", $margen, 0, 'C');
         break;
    
@@ -170,11 +170,11 @@ if (file_exists($rutaImagen)) {
   //antitetanica
   switch (trim($data->antitetanica)) {
     case '1':
-        $pdf->Cell(62, 5, "", $margen, 0, 'C');
+        $pdf->Cell(64, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "SI", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(77, 5, "", $margen, 0, 'C');
+        $pdf->Cell(75, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "NO", $margen, 1, 'C');
         break;
   }
