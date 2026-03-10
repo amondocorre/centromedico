@@ -385,7 +385,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(120, 5, "", $margen, 0, 'C');
+        $pdf->Cell(115, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
@@ -408,7 +408,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(127, 5, "", $margen, 0, 'C');
+        $pdf->Cell(123, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
