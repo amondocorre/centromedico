@@ -378,7 +378,7 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->MultiCell(80, 5, utf8_decode($data->motoras_sensetivas_diagnosticadas), $margen, 'L');
    //evaluacion de especialidad
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+6); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+7); // asegura posición
   switch (trim($data->requiere_evaluacion_especialidad)) {
     case '1':
         $pdf->Cell(70, 5, "", $margen, 0, 'C');
@@ -390,7 +390,7 @@ if (file_exists($rutaImagen)) {
         break;
   }
    //motivo de especialidad
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura pos7ición
   $pdf->Cell(60, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->MultiCell(80, 5, ($data->motivo_referencia_especialidad), $margen, 'L');
    //resultado motivo de especialidad
@@ -408,7 +408,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(125, 5, "", $margen, 0, 'C');
+        $pdf->Cell(126, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
