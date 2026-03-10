@@ -385,7 +385,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(125, 5, "", $margen, 0, 'C');
+        $pdf->Cell(120, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
@@ -399,7 +399,7 @@ if (file_exists($rutaImagen)) {
   $pdf->MultiCell(100, 5, ($data->evaluacion_especialidad), $margen, 'L');
   
     //evaluacion de psicosensometirca
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+4); // asegura posición
 
 
   switch (trim($data->requiere_evaluacion_psicosensometria)) {
@@ -408,7 +408,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(133, 5, "", $margen, 0, 'C');
+        $pdf->Cell(127, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
   }
