@@ -206,14 +206,14 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(20, 5, $data->peso, $margen, 1, 'C');
   $pdf->SetFont('helvetica', 'N', 8);
   //cabeza
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+18); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()+18); // asegura posición estoy aqui
   $pdf->Cell(10, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
   $pdf->MultiCell(150, 5, utf8_decode($data->cabeza), $margen, 'L');
   //cara
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+1); // asegura posición
   $pdf->Cell(10, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
-  $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición
+  $pdf->SetXY($pdf->GetX(), $pdf->GetY()); // asegura posición  
   $pdf->MultiCell(150, 5, utf8_decode($data->cara), $margen, 'L');
   //cuello
     $pdf->SetXY($pdf->GetX(), $pdf->GetY()+1); // asegura posición
