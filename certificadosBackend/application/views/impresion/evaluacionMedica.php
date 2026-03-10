@@ -27,7 +27,7 @@ if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
 }
 $pdf->setFontSubsetting(true);
 //  margen izquierdo, margen superior, margen derecho
-$pdf->SetMargins(30, 25, 20);
+$pdf->SetMargins(28, 23, 20);
 $pdf->SetAutoPageBreak(TRUE, 10);
 
 $margen=0 ;
