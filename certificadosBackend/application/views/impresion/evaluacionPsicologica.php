@@ -128,7 +128,7 @@ $pdf->AddPage();
     
   }
   //memoria
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+20); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+19); // asegura posición
   switch (trim($data->atencion_cognitiva)) {
     case 'adecuado':
         $pdf->Cell(32, 5, "", $margen, 0, 'C');
@@ -145,7 +145,7 @@ $pdf->AddPage();
     
   }
   //estres
-  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+24); // asegura posición
+  $pdf->SetXY($pdf->GetX()+4, $pdf->GetY()+23); // asegura posición
   switch (trim($data->reaccion_estres_riego)) {
     case 'optio':
         $pdf->Cell(33, 5, "", $margen, 0, 'C');
