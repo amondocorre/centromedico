@@ -32,7 +32,7 @@ $pdf->SetAutoPageBreak(TRUE, 10);
 $margen=0 ;
 
 $pdf->AddPage();
-  $logoWidth = 26;
+  $logoWidth = 29;
   $logoX = $pdf->GetX();
   $logoY = $pdf->GetY();
 
