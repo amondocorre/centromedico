@@ -127,7 +127,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Ocasionalmente':
-        $pdf->Cell(70, 5, "", $margen, 0, 'C');
+        $pdf->Cell(73, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Una o más a la semana':
@@ -144,7 +144,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Ocasionalmente':
-        $pdf->Cell(70, 5, "", $margen, 0, 'C');
+        $pdf->Cell(73, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "X", $margen, 1, 'C');
         break;
     case 'Una o más a la semana':
@@ -170,7 +170,7 @@ if (file_exists($rutaImagen)) {
   //antitetanica
   switch (trim($data->antitetanica)) {
     case '1':
-        $pdf->Cell(64, 5, "", $margen, 0, 'C');
+        $pdf->Cell(61, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "SI", $margen, 1, 'C');
         break;
     case '0':
@@ -183,13 +183,13 @@ if (file_exists($rutaImagen)) {
   $pdf->Cell(70, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(35, 5, $data->grupo_sanguineo, $margen, 1, 'C');
   //temperatura
-  $pdf->Cell(5, 2, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
+  $pdf->Cell(5, 0, "", $margen, 1, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(40, 4, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $pdf->Cell(23, 5, $data->temperatura, $margen, 0, 'C');
   //presion arterial
   $pdf->Cell(35, 8, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
   $presion = str_replace("/", "  ", $data->presion_arterial);
-  $pdf->Cell(27, 5, $presion, $margen, 1, 'C');
+  $pdf->Cell(26, 5, $presion, $margen, 1, 'C');
   //frecuencia_cardiaca
   $pdf->SetXY($pdf->GetX(), $pdf->GetY()+2); // asegura posición
   $pdf->Cell(25, 5, "", $margen, 0, 'C'); // SALTO DE LINEA ANCHO
