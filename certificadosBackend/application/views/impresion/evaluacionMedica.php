@@ -174,7 +174,7 @@ if (file_exists($rutaImagen)) {
         $pdf->Cell(8, 5, "SI", $margen, 1, 'C');
         break;
     case '0':
-        $pdf->Cell(82, 5, "", $margen, 0, 'C');
+        $pdf->Cell(79, 5, "", $margen, 0, 'C');
         $pdf->Cell(8, 5, "NO", $margen, 1, 'C');
         break;
   }
