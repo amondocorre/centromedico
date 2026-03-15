@@ -194,6 +194,8 @@ $route['api/impresion/imprimirReciboPagoContrato/(:any)'] = 'Impresion/imprimirR
 $route['api/impresion/imprimirEvaluacionMedica/(:any)'] = 'Impresion/imprimirEvaluacionMedica/$1';
 $route['api/impresion/imprimirEvaluacionPsicologica/(:any)'] = 'Impresion/imprimirEvaluacionPsicologica/$1';
 $route['api/impresion/imprimirInfEvaluacionPsicologica/(:any)'] = 'Impresion/imprimirInfEvaluacionPsicologica/$1';
+$route['api/impresion/imprimirEvaluacionVisual/(:any)'] = 'Impresion/imprimirEvaluacionVisual/$1';
+$route['api/impresion/imprimirEvaluacionOtorrino/(:any)'] = 'Impresion/imprimirEvaluacionOtorrino/$1';
 
 $route['api/config/company/activate/(:any)'] = 'configurations/CompanyController/activate/$1';
 
@@ -244,6 +246,20 @@ $route['api/evaluation/InfPsychological/update/(:any)'] = 'evaluation/InfPsychol
 $route['api/evaluation/InfPsychological/activate/(:any)'] = 'evaluation/InfPsychologicalController/activate/$1';
 $route['api/evaluation/InfPsychological/search'] = 'evaluation/InfPsychologicalController/search';
 $route['api/evaluation/InfPsychological/findIdentity/(:any)'] = 'evaluation/InfPsychologicalController/findIdentity/$1';
+// evaluation visual
+$route['api/evaluation/visual/create'] = 'evaluation/VisualController/create';
+$route['api/evaluation/visual/update/(:any)'] = 'evaluation/VisualController/update/$1';
+$route['api/evaluation/visual/activate/(:any)'] = 'evaluation/VisualController/activate/$1';
+$route['api/evaluation/visual/search'] = 'evaluation/VisualController/search';
+$route['api/evaluation/visual/findIdentity/(:any)'] = 'evaluation/VisualController/findIdentity/$1';
+
+// evaluation otorrino
+$route['api/evaluation/otorrino/create'] = 'evaluation/OtorrinoController/create';
+$route['api/evaluation/otorrino/update/(:any)'] = 'evaluation/OtorrinoController/update/$1';
+$route['api/evaluation/otorrino/activate/(:any)'] = 'evaluation/OtorrinoController/activate/$1';
+$route['api/evaluation/otorrino/search'] = 'evaluation/OtorrinoController/search';
+$route['api/evaluation/otorrino/findIdentity/(:any)'] = 'evaluation/OtorrinoController/findIdentity/$1';
+
 $route['api/proxy-image'] = 'ImageProxy/get';
 $route['api/image-batch'] = 'ImageProxy/getBase64List';
 //$route['api/proxy-image/(:any)'] = 'ImageProxy/get/$1';

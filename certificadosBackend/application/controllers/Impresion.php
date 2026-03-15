@@ -15,6 +15,8 @@ class Impresion extends CI_Controller {
     $this->load->model('evaluation/MedicalModel');
     $this->load->model('evaluation/PsychologicalModel');
     $this->load->model('evaluation/InfPsychologicalModel');
+    $this->load->model('evaluation/VisualModel');
+    $this->load->model('evaluation/OtorrinoModel');
   } 
   public function imprimirMovimientoCaja($idMovimiento) {
    if (!validate_http_method($this, ['POST'])) return; 
@@ -247,5 +249,32 @@ class Impresion extends CI_Controller {
     $this->load->view('impresion/infPvaluacionPsicologica', $datos, FALSE); 
     $response = ['status' => 'success','data'=>$data];
     //return _send_json_response($this, 200, $response);
+  }
+  public function imprimirEvaluacionVisual($id) {
+    if (!validate_http_method($this, ['GET'])) return; 
+    $res = verifyTokenAccess();
+    if(!$res) return; 
+    $data = $this->VisualModel->findIdentity($id);
+    if (!$data) {
+        return _send_json_response($this, 404, ['status' => 'error', 'message' => 'No se encontró la evaluación.']);
+    }
+    $url = getHttpHost();
+    $data->foto = $data->foto ? $url.$data->foto : '';
+    $datos['json'] = json_encode($data);
+    $this->load->view('impresion/evaluacionVisual', $datos, FALSE); 
+  }
+
+  public function imprimirEvaluacionOtorrino($id) {
+    if (!validate_http_method($this, ['GET'])) return; 
+    $res = verifyTokenAccess();
+    if(!$res) return; 
+    $data = $this->OtorrinoModel->findIdentity($id);
+    if (!$data) {
+        return _send_json_response($this, 404, ['status' => 'error', 'message' => 'No se encontró la evaluación.']);
+    }
+    $url = getHttpHost();
+    $data->foto = $data->foto ? $url.$data->foto : '';
+    $datos['json'] = json_encode($data);
+    $this->load->view('impresion/evaluacionOtorrino', $datos, FALSE); 
   }
 }
