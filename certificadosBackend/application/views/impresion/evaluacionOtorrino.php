@@ -145,6 +145,6 @@ $style = array(
     'module_height' => 1
 );
 
-$pdf->write2DBarcode($qrText, 'QRCODE,H', 170, 230, 30, 30, $style, 'N');
+//$pdf->write2DBarcode($qrText, 'QRCODE,H', 170, 230, 30, 30, $style, 'N');
 
 $pdf->Output('reporte_otorrino.pdf', 'I');

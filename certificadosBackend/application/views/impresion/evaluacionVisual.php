@@ -218,6 +218,6 @@ $style = array(
 );
 
 // Position QR in bottom right corner
-$pdf->write2DBarcode($qrText, 'QRCODE,H', 170, 230, 30, 30, $style, 'N');
+//$pdf->write2DBarcode($qrText, 'QRCODE,H', 170, 230, 30, 30, $style, 'N');
 
 $pdf->Output('reporte_visual.pdf', 'I');
