@@ -10,7 +10,6 @@ if (!function_exists('test')) {
 }
 if (!function_exists('_send_json_response')) {
   function _send_json_response(&$CI, $status, $data) {
-      if (ob_get_length() > 0) ob_clean();
       $CI->output
           ->set_status_header($status)
           ->set_content_type('application/json')

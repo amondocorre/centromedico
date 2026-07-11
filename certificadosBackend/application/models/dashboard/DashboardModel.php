@@ -21,7 +21,7 @@ class DashboardModel extends CI_Model {
         SUM(CASE WHEN sexo = 'M' THEN 1 ELSE 0 END) AS masculino,
         SUM(CASE WHEN sexo = 'F' THEN 1 ELSE 0 END) AS femenino
         FROM evaluacion_medica 
-        WHERE fecha_evaluacion='$fecha' $sucursalWhere;");
+        WHERE fecha_evaluacion='$fecha' AND id_estado_evaluacion IN (1,2) $sucursalWhere;");
     return $query->row(); 
   }
   public function getTotalEvaPsychological($id_sucursal) {
@@ -50,6 +50,7 @@ class DashboardModel extends CI_Model {
       false
     );
     $this->db->where('DATE(em.fecha_evaluacion) =', $fecha);
+    $this->db->where_in('em.id_estado_evaluacion', [1,2]);
     $this->db->where('(em.id_usuario_modifica IS NOT NULL OR em.id_usuario_registra IS NOT NULL)', null, false);
     if (!empty($id_sucursal) && (int)$id_sucursal > 0) {
       $this->db->where('em.id_sucursal', (int)$id_sucursal);
