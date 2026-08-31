@@ -231,6 +231,7 @@ $route['api/evaluation/exploration/search'] = 'evaluation/ExplorationController/
 $route['api/evaluation/medical/create'] = 'evaluation/MedicalController/create';
 $route['api/evaluation/medical/update/(:any)'] = 'evaluation/MedicalController/update/$1';
 $route['api/evaluation/medical/activate/(:any)'] = 'evaluation/MedicalController/activate/$1';
+$route['api/evaluation/medical/delete/(:any)'] = 'evaluation/MedicalController/delete/$1';
 $route['api/evaluation/medical/search'] = 'evaluation/MedicalController/search';
 $route['api/evaluation/medical/findIdentity/(:any)'] = 'evaluation/MedicalController/findIdentity/$1';
 // evaluation psychological
